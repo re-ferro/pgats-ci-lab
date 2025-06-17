@@ -11,27 +11,27 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Instalando Yarn
         run: npm install -g yarn
 
       - name: Instalando dependências
-        run: yarn  
+        run: yarn
 
       - name: Chegando padronizacao do código
-        run: yarn lint  
+        run: yarn lint
 
   unidade:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Instalando Yarn
         run: npm install -g yarn
 
       - name: Instalando dependências
-        run: yarn  
+        run: yarn
 
       - name: Chegando padronizacao do código
         run: yarn test
@@ -52,15 +52,15 @@ jobs:
       - name: Instalando Yarn
         run: npm install -g yarn
 
-      # instalacao das dependencias  
+      # instalacao das dependencias
       - name: Instalando dependencias
         run: yarn
 
-      # instalacao do Playwright 
+      # instalacao do Playwright
       - name: Instalando Playwright
         run: yarn playwright install
 
-      # executar os testes e2e   
+      # executar os testes e2e
       - name: Executando Teste E2E
         run: yarn run e2e
 
@@ -68,9 +68,9 @@ jobs:
         if: ${{ !cancelled() }}
         with:
           name: relatorio
-          path: ./playwright-report  
+          path: ./playwright-report
 
-  deploy:  
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
